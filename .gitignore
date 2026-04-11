@@ -1,0 +1,17 @@
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+*.log
+*.pot
+*.pyc
+.pytest_cache/
+.DS_Store
+.env
+*.sqlite3
