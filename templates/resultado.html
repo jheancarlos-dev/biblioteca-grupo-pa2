@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Resultado del cálculo</h1>
   {% if error %}
-    <p class="lede">Revisa los datos e inténtalo de nuevo.</p>
+    <p class="lede">Verifica los datos y vuelve a intentarlo.</p>
     <div class="card">
       <p class="error" role="alert">{{ error }}</p>
       <a class="back" href="{{ url_for('index') }}">← Volver al formulario</a>
