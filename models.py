@@ -17,6 +17,7 @@ class Libro(Base):
     __tablename__ = "libros"
     id = Column(Integer, primary_key=True)
     titulo = Column(String, nullable=False)
+    prestamos = relationship("Prestamo", back_populates="libro")
 
 
 class Prestamo(Base):
@@ -28,3 +29,4 @@ class Prestamo(Base):
     usuario_id = Column(Integer, ForeignKey("usuarios.id"))
     libro_id = Column(Integer, ForeignKey("libros.id"))
     usuario = relationship("Usuario", back_populates="prestamos")
+    libro = relationship("Libro", back_populates="prestamos")
