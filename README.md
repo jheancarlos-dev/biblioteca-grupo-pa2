@@ -42,3 +42,5 @@ python app.py
 
 # 5. (Opcional) Ejecutar pruebas
 pytest test_logica.py -v
+
+## Prueba de flujo PA3
