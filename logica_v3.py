@@ -22,8 +22,6 @@ class PoliticaDocente(PoliticaPrestamo):
 
 
 class BibliotecaService:
-    DIAS_PRESTAMO_ESTUDIANTE: int = DIAS_PRESTAMO_ESTUDIANTE
-    DIAS_PRESTAMO_OTROS_USUARIOS: int = DIAS_PRESTAMO_OTROS_USUARIOS
     MULTA_POR_DIA_POR_LIBRO: float = 0.50
 
     def __init__(self, politica: PoliticaPrestamo) -> None:
@@ -48,3 +46,7 @@ class BibliotecaService:
         )
 
         return monto_total_multa, fecha_limite_devolucion
+
+class PoliticaInvitado(PoliticaPrestamo):
+    def obtener_dias_prestamo(self) -> int:
+        return 3

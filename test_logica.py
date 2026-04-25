@@ -59,3 +59,14 @@ def test_lanza_valueerror_si_cantidad_libros_negativa() -> None:
 
     with pytest.raises(ValueError, match="cantidad_libros"):
         servicio.calcular_prestamo(0, -1)
+
+def test_invitado_recibe_tres_dias_de_prestamo(fecha_hoy_fija: date) -> None:
+    """Ciclo TDD: prueba RED - aún no existe PoliticaInvitado."""
+    from logica_v3 import PoliticaInvitado  # Esta clase NO existe aún
+
+    with mock.patch("logica_v3.date") as fecha_modulo:
+        fecha_modulo.today.return_value = fecha_hoy_fija
+        servicio = BibliotecaService(PoliticaInvitado())
+        _, fecha_limite = servicio.calcular_prestamo(0, 1)
+
+    assert fecha_limite == fecha_hoy_fija + timedelta(days=3)
