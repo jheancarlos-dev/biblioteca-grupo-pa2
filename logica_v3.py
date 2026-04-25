@@ -25,6 +25,8 @@ class BibliotecaService:
     MULTA_POR_DIA_POR_LIBRO: float = 0.50
 
     def __init__(self, politica: PoliticaPrestamo) -> None:
+        if politica is None:
+            raise TypeError("La política de préstamo no puede ser None")
         self._politica: PoliticaPrestamo = politica
 
     def calcular_prestamo(

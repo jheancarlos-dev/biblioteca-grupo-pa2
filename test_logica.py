@@ -70,3 +70,15 @@ def test_invitado_recibe_tres_dias_de_prestamo(fecha_hoy_fija: date) -> None:
         _, fecha_limite = servicio.calcular_prestamo(0, 1)
 
     assert fecha_limite == fecha_hoy_fija + timedelta(days=3)
+
+def test_multa_cero_si_dias_retraso_cero() -> None:
+    """Ciclo TDD: prueba RED - verifica que multa sea 0 cuando no hay retraso."""
+    servicio = BibliotecaService(PoliticaEstudiante())
+    monto_multa, _ = servicio.calcular_prestamo(0, 2)
+
+    assert monto_multa == 0.0
+
+def test_lanza_error_con_politica_nula() -> None:
+    """Ciclo TDD: prueba RED - verifica que pasar None como política lance TypeError."""
+    with pytest.raises(TypeError):
+        BibliotecaService(None)  # type: ignore
