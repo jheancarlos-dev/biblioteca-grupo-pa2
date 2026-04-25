@@ -16,3 +16,11 @@ class Carrito:
             raise ValueError("El nombre del producto no puede estar vacío")
         self._productos.append(producto)
         self.total += producto.precio
+
+    def eliminar(self, producto: Producto) -> None:
+        if producto in self._productos:
+            self._productos.remove(producto)
+            self.total -= producto.precio
+
+    def obtener_cantidad(self):
+    	return len(self._productos)
