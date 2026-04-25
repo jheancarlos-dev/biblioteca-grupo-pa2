@@ -1,0 +1,2 @@
+[run]
+omit = logica_v1.py, logica_v2.py
