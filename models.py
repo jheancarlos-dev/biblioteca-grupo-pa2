@@ -20,7 +20,6 @@ class Libro(Base):
     autor = Column(String, nullable=True)
     prestamos = relationship("Prestamo", back_populates="libro")
 
-
 class Prestamo(Base):
     __tablename__ = "prestamos"
     id = Column(Integer, primary_key=True)
