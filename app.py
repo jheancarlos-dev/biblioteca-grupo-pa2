@@ -3,7 +3,11 @@ from flask import Flask, render_template, request
 from logica_v3 import BibliotecaService, PoliticaDocente, PoliticaEstudiante
 
 app = Flask(__name__)
+from models import Base
+from sqlalchemy import create_engine
 
+engine = create_engine("sqlite:///biblioteca.db")
+Base.metadata.create_all(engine)
 
 @app.get("/")
 def index():
