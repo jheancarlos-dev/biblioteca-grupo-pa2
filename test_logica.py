@@ -59,3 +59,10 @@ def test_lanza_valueerror_si_cantidad_libros_negativa() -> None:
 
     with pytest.raises(ValueError, match="cantidad_libros"):
         servicio.calcular_prestamo(0, -1)
+
+def test_multa_estudiante_sin_retraso():
+    """Prueba adicional: sin días de retraso la multa debe ser cero."""
+    servicio = BibliotecaService(PoliticaEstudiante())
+    monto_multa, _ = servicio.calcular_prestamo(0, 2)
+
+    assert monto_multa == 0.0
